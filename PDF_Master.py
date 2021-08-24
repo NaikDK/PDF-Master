@@ -82,7 +82,7 @@ def combine_files():
     global filename1, filename2, filepath1, filepath2, output, status_var
     output = PdfFileWriter()
     infile1 = PdfFileReader(filepath1+filename1, 'rb')
-    infile2 = PdfFileReader(filepath1+filename1, 'rb')
+    infile2 = PdfFileReader(filepath2+filename2, 'rb')
     pages1 = infile1.getNumPages()
     for i in range(0, pages1):
         p = infile1.getPage(i)
