@@ -156,7 +156,7 @@ merge_files = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
-    width=20,
+    width=15,
 )
 delete_pdf_pages = tk.Radiobutton(
     root,
@@ -165,7 +165,7 @@ delete_pdf_pages = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
-    width=20,
+    width=15,
 )
 split_pdf = tk.Radiobutton(
     root,
@@ -174,7 +174,7 @@ split_pdf = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
-    width=20,
+    width=15,
 )
 sub_pdf = tk.Radiobutton(
     root,
@@ -183,7 +183,7 @@ sub_pdf = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
-    width=20,
+    width=15,
 )
 v.set("2")
 
@@ -194,7 +194,7 @@ split_pdf.grid(row=0, column=2, padx=5, pady=5)
 sub_pdf.grid(row=0, column=3, padx=5, pady=5)
 
 # Deletor widget declaration Starts Here
-Deletor = tk.Frame(root, name="deletor", background="lavender")
+Deletor = tk.Frame(root, name="deletor", background="lavender", border=25)
 
 In_label = tk.Label(
     Deletor, text="Select input PDF: ", width="30", anchor="w", background="lavender"
@@ -259,7 +259,7 @@ merge.grid(row=2, column=0, sticky=tk.W, padx=5, pady=5)
 download_merged.grid(row=2, column=1, padx=5, pady=5)
 
 # Split widget declaration
-Splitter = tk.Frame(root, name="splitter", background="lavender", width="45")
+Splitter = tk.Frame(root, name="splitter", background="lavender", border=25)
 input_File_Label = tk.Label(
     Splitter, text="Select PDF File", width="15", background="lavender", anchor="w"
 )
@@ -280,10 +280,10 @@ input_File_Label.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W)
 input_File.grid(row=0, column=1, padx=5, pady=5)
 split_Size_Label.grid(row=1, column=0, padx=5, pady=5, sticky=tk.W)
 split_Size.grid(row=1, column=1, padx=5, pady=5)
-split_Button.grid(row=2, column=0, padx=5, pady=5, sticky=tk.W)
+split_Button.grid(row=2, column=0, columnspan=2, padx=5, pady=5)
 
 # Sub widget declaration
-sub = tk.Frame(root, name="sub", background="lavender", width="45")
+sub = tk.Frame(root, name="sub", background="lavender", border=25)
 input_File_Label = tk.Label(
     sub, text="Select PDF File", width="15", background="lavender", anchor="w"
 )
@@ -311,11 +311,11 @@ status = tk.Label(
     root, textvariable=status_var, width="60", anchor="w", background="lavender"
 )
 status_var.set("Status: ")
-status.grid(row=2, columnspan=3, padx=15, pady=5, sticky=tk.W)
+status.grid(row=2, columnspan=3, padx=25, pady=5)
 
 # Author Line
 Author_line = tk.Label(
-    root, text="Produced by: Deep Naik", background="lavender", fg="gray30", width=20
+    root, text="Produced by: Deep Naik", background="lavender", fg="gray30"
 )
 Author_line.grid(row=5, column=0, columnspan=4)
 root.mainloop()
