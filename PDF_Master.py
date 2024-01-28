@@ -3,7 +3,6 @@ from os import stat_result
 import tkinter as tk
 from tkinter import filedialog
 from tkinter.constants import ACTIVE, ANCHOR, DISABLED
-from typing import Text
 from PyPDF2 import PdfWriter, PdfReader
 
 filepath1 = ""
@@ -19,23 +18,23 @@ def radio_change():
         Deletor.grid_forget()
         Splitter.grid_forget()
         sub.grid_forget()
-        Merger.grid(row=1, column=0, columnspan=3, sticky=tk.W, padx="45")
+        Merger.grid(row=1, column=0, columnspan=4)
     elif v.get() == "1":
         Merger.grid_forget()
         Splitter.grid_forget()
         sub.grid_forget()
-        Deletor.grid(row=1, column=0, columnspan=3, sticky=tk.W, padx="45")
+        Deletor.grid(row=1, column=0, columnspan=4)
     elif v.get() == "3":
         Merger.grid_forget()
         Deletor.grid_forget()
         sub.grid_forget()
-        Splitter.grid(row=1, column=0, columnspan=3, sticky=tk.W, padx="45")
+        Splitter.grid(row=1, column=0, columnspan=4)
     elif v.get() == "4":
-        print("in here")
+        # print("in here")
         Merger.grid_forget()
         Deletor.grid_forget()
         Splitter.grid_forget()
-        sub.grid(row=1, column=0, columnspan=3, sticky=tk.W, padx="45")
+        sub.grid(row=1, column=0, columnspan=4)
 
 
 def select_pdf():
@@ -144,6 +143,7 @@ def download_merged_pdf():
 
 
 root = tk.Tk()
+root.resizable(0, 0)
 root.title("PDF Master")
 root.configure(background="lavender")
 
@@ -156,6 +156,7 @@ merge_files = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
+    width=20,
 )
 delete_pdf_pages = tk.Radiobutton(
     root,
@@ -164,6 +165,7 @@ delete_pdf_pages = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
+    width=20,
 )
 split_pdf = tk.Radiobutton(
     root,
@@ -172,6 +174,7 @@ split_pdf = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
+    width=20,
 )
 sub_pdf = tk.Radiobutton(
     root,
@@ -180,6 +183,7 @@ sub_pdf = tk.Radiobutton(
     variable=v,
     command=radio_change,
     background="lavender",
+    width=20,
 )
 v.set("2")
 
@@ -191,6 +195,7 @@ sub_pdf.grid(row=0, column=3, padx=5, pady=5)
 
 # Deletor widget declaration Starts Here
 Deletor = tk.Frame(root, name="deletor", background="lavender")
+
 In_label = tk.Label(
     Deletor, text="Select input PDF: ", width="30", anchor="w", background="lavender"
 )
@@ -222,7 +227,8 @@ deleted_file.grid(row=2, column=0, padx=5, pady=5)
 download.grid(row=2, column=1)
 
 # Merger widget declaration Starts Here
-Merger = tk.Frame(root, name="merger", background="lavender", width=30)
+Merger = tk.Frame(root, name="merger", background="lavender", border=25)
+
 In_file1_label = tk.Label(
     Merger, text="Select input PDF1: ", width="30", anchor="w", background="lavender"
 )
@@ -237,7 +243,9 @@ merge = tk.Button(Merger, text="Merge Files", command=combine_files, state=DISAB
 download_merged = tk.Button(Merger, text="Download", command=download_merged_pdf)
 
 # Merger widget placement
-Merger.grid(row=1, column=0, columnspan=3, sticky=tk.W, padx="50")
+Merger.grid(row=1, column=0, columnspan=4)
+# Merger.grid_rowconfigure(0, weight=1)
+# Merger.grid_columnconfigure(1, weight=1)
 In_file1_label.grid(row=0, column=0, padx=5, pady=5, sticky=tk.W)
 In_file1.grid(
     row=0,
@@ -307,7 +315,7 @@ status.grid(row=2, columnspan=3, padx=15, pady=5, sticky=tk.W)
 
 # Author Line
 Author_line = tk.Label(
-    root, text="Produced by: Deep Naik", background="lavender", fg="gray30"
+    root, text="Produced by: Deep Naik", background="lavender", fg="gray30", width=20
 )
-Author_line.grid(row=5, column=0, columnspan=3)
+Author_line.grid(row=5, column=0, columnspan=4)
 root.mainloop()
