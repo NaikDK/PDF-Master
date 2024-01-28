@@ -1,7 +1,3 @@
 {
-  "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe",
-  "[python]": {
-    "editor.defaultFormatter": "ms-python.black-formatter"
-  },
-  "python.formatting.provider": "none"
+    "python.pythonPath": "C:\\ProgramData\\Anaconda3\\python.exe"
 }
