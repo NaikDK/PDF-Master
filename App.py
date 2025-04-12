@@ -9,8 +9,6 @@ class App(Tk):
         self.option_add("*Label.background", "lavender")
         self.option_add("*Button.foreground", "gray30")
         self.option_add("*Label.backforeground", "lavender")
-        self.option_add("*Button.relief", "flat")
-        self.option_add("*Button.borderwidth", 0)
         self.resizable(0, 0)
         Main_Window(self)
         self.create_widgets()

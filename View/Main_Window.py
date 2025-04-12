@@ -1,8 +1,10 @@
 from tkinter import *
 from View.Features.MergeFrame import MergeFrame
 from View.Features.DeletePagesFrame import DeletePagesFrame
+from View.Features.DecryptFrame import DecryptFrame
 from Controller.MergeController import MergeController
 from Controller.DeleteController import DeleteController
+from Controller.DecryptController import DecryptController
 
 class Main_Window(Frame):
     def __init__(self, root):
@@ -17,6 +19,7 @@ class Main_Window(Frame):
             "Merge Files",
             "Delete Pages",
             "Split PDF",
+            "Decrypt Files"
         ]
         self.drop = StringVar()
         self.drop.set(options[0])
@@ -29,6 +32,7 @@ class Main_Window(Frame):
             "Merge Files": MergeFrame(self.frame_container, MergeController()),
             "Delete Pages": DeletePagesFrame(self.frame_container, DeleteController()),
             # "Split PDF",
+            "Decrypt Files": DecryptFrame(self.frame_container, DecryptController())
         }
         
         self.current_frame = None
