@@ -17,7 +17,7 @@ class App(Tk):
         # Status bar
         self.status_var = StringVar()
         self.status = Label(
-            self, textvariable=self.status_var, anchor="w", background="lavender", fg="gray30"
+            self, textvariable=self.status_var, anchor="w"
         )
         self.status_var.set("Status: ")
         # self.status.grid(row=2, columnspan=3, padx=25, pady=5)
@@ -25,7 +25,7 @@ class App(Tk):
 
         # Author Line
         self.author_line = Label(
-            self, text="Produced by: Deep Naik", background="lavender", fg="gray30"
+            self, text="Produced by: Deep Naik"
         )
         # self.author_line.grid(row=5, column=0, columnspan=4)
         self.author_line.pack(pady=20)

@@ -5,7 +5,6 @@ class MergeFrame(Frame):
         super().__init__(parent)
         self.configure(background="lavender")
         self.controller = controller
-        # self.pack(fill="both", expand=True)
         self.files = []
         self.create_merge_widgets()
     
@@ -19,22 +18,11 @@ class MergeFrame(Frame):
         self.selected_pdfs = Listbox(
             self, width=30, background="lavender", fg="gray30", selectmode=SINGLE
         )
-        # In_file2_label = Label(
-        #     self, text="Select input PDF2: ", width="30", anchor="w", background="lavender", fg="gray30"
-        # )
-        # In_file2 = Button(
-        #     self, text="Select PDF", command=self.add_pdf, state=DISABLED
-        # )
         self.merge = Button(self, text="Merge Files", command=self.combine_files, state=DISABLED)
         self.download_merged = Button(self, text="Download", command=self.download_merged_pdf, state=DISABLED)
 
         In_file1_label.grid(row=0, column=0, padx=5, pady=5, sticky=W)
-        In_file1.grid(
-            row=0,
-            column=1,
-            padx=5,
-            pady=5,
-        )
+        In_file1.grid(row=0,column=1,padx=5,pady=5,)
         selected_files_label.grid(row=1, column = 0, padx=5, pady=5)
         self.selected_pdfs.grid(row=1, column=1, padx=5, pady=5)
         self.merge.grid(row=2, column=0, sticky=W, padx=5, pady=5)
@@ -63,4 +51,12 @@ class MergeFrame(Frame):
             self.selected_pdfs.insert(END, "No files to merge")
 
     def download_merged_pdf(self):
-        self.controller.downlaod_merged()
+        status = self.controller.downlaod_merged()
+        if status:
+            self.selected_pdfs.delete(0, END)
+            self.selected_pdfs.insert(END, "Files Downloaded Successfully")
+            self.download_merged.config(state=DISABLED)
+        else:
+            self.selected_pdfs.delete(0, END)
+            self.selected_pdfs.insert(END, "Error in downloading files")
+        

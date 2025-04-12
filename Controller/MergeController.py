@@ -25,5 +25,17 @@ class MergeController(GenericController):
 
     def downlaod_merged(self):
         file = super().get_download_location()
-        with open(file, "wb") as f:
-            self.final.write(f)
+        try:
+            with open(file, "wb") as f:
+                self.final.write(f)
+            self.final = PdfWriter()
+            self.files = []
+            return True
+        except Exception as e:
+            print("Error: ", e)
+            return False
+        
+        
+    
+    def move_up(self):
+        pass
