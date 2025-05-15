@@ -1,12 +1,6 @@
 from tkinter import *
-from View.Features.MergeFrame import MergeFrame
-from View.Features.DeletePagesFrame import DeletePagesFrame
-from View.Features.DecryptFrame import DecryptFrame
-from View.Features.SplitFrame import SplitFrame
-from Controller.MergeController import MergeController
-from Controller.DeleteController import DeleteController
-from Controller.DecryptController import DecryptController
-from Controller.SplitController import SplitController
+from View.Features import MergeFrame, DeletePagesFrame, DecryptFrame, SplitFrame
+from Controller import MergeController, DeleteController, DecryptController, SplitController
 
 class Main_Window(Frame):
     def __init__(self, root):
